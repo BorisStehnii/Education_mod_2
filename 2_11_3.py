@@ -8,7 +8,7 @@ def func_2(nums):
 
 def func(list_, f_1, f_2):
     negative_list = [x for x in list_ if x < 0]
-    if len(negative_list) > 0:
+    if negative_list:
         func_res = f_2
     else:
         func_res = f_1
