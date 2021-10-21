@@ -16,12 +16,13 @@ class TVController():
         print(self.current_channel)
 
     def last_channel(self):
-        self.current_channel = self.channels[len(self.channels) - 1]
+        self.current_channel = self.channels[-1]
         print(self.current_channel)
 
     def turn_channel(self, n):
         self.current_channel = self.channels[n-1]
         print(self.current_channel)
+
     def next_channel(self):
         ind = self.channels.index(self.current_channel)
         if ind == len(self.channels) - 1:
@@ -34,7 +35,7 @@ class TVController():
     def previous_channel(self):
         ind = self.channels.index(self.current_channel)
         if ind == 0:
-            self.current_channel = self.channels[len(self.channels) - 1]
+            self.current_channel = self.channels[-1]
             print(self.current_channel)
         else:
             self.current_channel = self.channels[ind-1]
@@ -43,10 +44,9 @@ class TVController():
     def current(self):
         print(self.current_channel)
 
-    def is_exist(self, name, n):
-        for ind, channel in self.channels:
-            if ind == n or channel == name:
-                print("Yes")
+    def is_exist(self, name):
+        if name is self.channels or int(name)-1 <= len(self.channels):
+            print("Yes")
         else:
             print("No")
 
@@ -81,7 +81,7 @@ def commands(tv_cont):
         tv_cont.current()
     elif command.lower() == "i":
         channels = input(massage_4)
-        tv_cont.is_exist(massage_4)
+        tv_cont.is_exist(channels)
     elif command.lower() == "e":
         exit(0)
 
