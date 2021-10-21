@@ -1,6 +1,6 @@
 class TVController():
 
-    def __init__(self, channels):
+    def init(self, channels):
         self.channels = channels
         self.current_channel = self.channels[0]
         print(self.current_channel)
@@ -55,7 +55,7 @@ massage_1 = "add channel: A, first channel: F, last channel: L, turn channel: T\
             "delete channel: D, current channel: C\nis exist: I, exit: E"
 massage_2 = "Name channel: "
 massage_3 = "Number channel: "
-massage_4 = "Number or Name channel:  "
+massage_4 = "Number or Name channel: "
 
 
 def commands(tv_cont):
