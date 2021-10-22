@@ -59,7 +59,7 @@ massage_5 = "Get out of the house(Е/n): "
 
 
 def commands(person):
-    command = input(massage_1)
+    command = input("command: ")
     if command.lower() == "a":
         name_cat = input(massage_2)
         age_cat = input(massage_3)
@@ -83,5 +83,6 @@ def commands(person):
 
 if __name__ == '__main__':
     boris = Person()
+    print(massage_1)
     while True:
         commands(boris)
