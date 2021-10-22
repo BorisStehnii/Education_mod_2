@@ -20,17 +20,19 @@ class TVController():
         print(self.current_channel)
 
     def turn_channel(self, n):
-        self.current_channel = self.channels[n-1]
+        if n > len(self.channels):
+            self.current_channel = self.channels[-1]
+        else:
+            self.current_channel = self.channels[n-1]
         print(self.current_channel)
 
     def next_channel(self):
         ind = self.channels.index(self.current_channel)
         if ind == len(self.channels) - 1:
             self.current_channel = self.channels[0]
-            print(self.current_channel)
         else:
             self.current_channel = self.channels[ind+1]
-            print(self.current_channel)
+        print(self.current_channel)
 
     def previous_channel(self):
         ind = self.channels.index(self.current_channel)
@@ -45,7 +47,7 @@ class TVController():
         print(self.current_channel)
 
     def is_exist(self, name):
-        if name is self.channels or int(name)-1 <= len(self.channels):
+        if name is self.channels or 0 < int(name) < len(self.channels):
             print("Yes")
         else:
             print("No")
