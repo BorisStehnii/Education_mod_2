@@ -13,12 +13,16 @@ class ProductStore():
         self.name_market = name_market
         self.warehouse = dict()
         self.income = 0
+        self.marge = 0.2
 
     def add_product(self, new_product, amount):
         if new_product.name in self.warehouse:
+            # self.warehouse[f"{new_product.type_}_{new_product.name}"].amount_ += amount
             self.warehouse[new_product.name].amount_ += amount
         else:
             new_product.amount_ = amount
+            new_product.price += new_product.price * self.marge
+            # self.warehouse.update({f"{new_product.type_}_{new_product.name}": new_product})
             self.warehouse.update({new_product.name: new_product})
 
     def set_discount(self, identifier, percent):
@@ -26,10 +30,15 @@ class ProductStore():
         if identifier is self.warehouse:
             discount = self.warehouse[identifier].price * percent / 100
         else:
-            for name in self.warehouse:
-                if self.warehouse[name].type_ == identifier:
-                    discount = self.warehouse[name].price * percent / 100
-                    print(discount)
+
+        #     for name in self.warehouse:
+        #         if self.warehouse[name].type_ == identifier:
+        #             discount = self.warehouse[name].price * percent / 100
+        #             print(discount)
+
+            for name_key, product_ in self.warehouse.items():
+                if identifier in name_key:
+                    pass
         return discount
 
     def sell_product(self, name_product_, amount):
@@ -76,7 +85,7 @@ def int_():
 
 if __name__ == '__main__':
     store = ProductStore("ATB")
-    print("Add product: a, sell product: s\n get incom: i, all products: p\ninf product: j, exit: e")
+    print("Add product: a, sell product: s\n get income: i, all products: p\ninf product: j, exit: e")
     while True:
         command = input("command")
         if command.lower() == "a":
