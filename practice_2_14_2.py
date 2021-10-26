@@ -58,5 +58,3 @@ for veh in [bike, car, plane]:
 print(car > bike)
 print(bike > plane)
 print(bike == bike)
-
-
