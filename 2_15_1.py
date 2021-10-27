@@ -1,9 +1,8 @@
 def logger(func):
 
     def print_func(*args):
-        for name_func in globals():
-            if name_func in repr(func):
-                print(f"{name_func}{args}")
+        args = " ".join(map(str, args))
+        print(f"{func.__name__} {args}")
     return print_func
 
 
@@ -19,4 +18,4 @@ def square_all(*args):
 
 
 add(5, 5)
-square_all(2, 5, 10)
+square_all(1, 3, 5)
