@@ -20,6 +20,8 @@ def write_logs(name_log_file):
 
 @write_logs("logs.log")
 def funk_test(x, y):
+    if not isinstance(x, int):
+        raise TypeError
     return sum(x_1**y for x_1 in list(range(x)))
 
 
