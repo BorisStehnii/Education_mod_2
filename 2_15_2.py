@@ -2,8 +2,8 @@ def stop_words(list_):
 
     def words_(func):
 
-        def words_replacement(string_):
-            string_ = func(string_)
+        def words_replacement(*args):
+            string_ = func(*args)
             print(string_)
             for word in list_:
                 count_ = string_.count(word)

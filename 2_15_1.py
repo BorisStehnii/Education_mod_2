@@ -1,5 +1,8 @@
-def logger(func):
+from functools import wraps
 
+
+def logger(func):
+    @wraps(func)
     def print_func(*args):
         args = " ".join(map(str, args))
         print(f"{func.__name__} {args}")
