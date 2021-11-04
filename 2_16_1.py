@@ -18,11 +18,9 @@ class Validate():
             print(msg)
 
     def validate(self, string_):
-        if isinstance(string_, str) and re.findall(r'^\w+[.-]?\w+[.-]?\w+[@]\w+[.-]?\w+[.-]?\w+$', string_):
-            answer = True
-        else:
-            answer = False
-        return answer
+        if isinstance(string_, str) and re.findall(r'^(\w+[.-]?\w+)+@\w+\.\w{2,3}$', string_):
+            return True
+        return False
 
 
 Validate("true@mail.com")

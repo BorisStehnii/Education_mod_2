@@ -3,28 +3,23 @@ from functools import wraps
 
 class TypeDecorators:
 
+
     @staticmethod
     def to_int(func):
         @wraps(func)
         def get_int(*args):
             result = []
             for arg in args:
-                if isinstance(arg, str):
-                    if arg.replace(".", "1").isdigit():
-                        result.append(int(float(arg)))
-                    else:
-                        raise TypeError
-                elif isinstance(arg, bool):
-                    if arg:
-                        result.append(1)
-                    else:
-                        result.append(0)
-                elif isinstance(arg, float):
-                    result.append(int(arg))
+                if isinstance(arg, str) and arg.replace(".", "1").isdigit() or isinstance(arg, float) or isinstance(arg,
+                                                                                                                    int):
+                    result.append(int(float(arg)))
+                elif isinstance(arg, bool) and arg:
+                    result.append(1)
+                elif isinstance(arg, bool) and not arg:
+                    result.append(0)
                 else:
-                    result.append(int(arg))
+                    raise TypeError
             return result
-
         return get_int
 
     @staticmethod
@@ -33,7 +28,6 @@ class TypeDecorators:
         def get_str(*args):
             result = " ".join(map(str, args))
             return result
-
         return get_str
 
     @staticmethod
@@ -42,8 +36,7 @@ class TypeDecorators:
         def get_bool(*args):
             if args:
                 return True
-            else:
-                return False
+            return False
         return get_bool
 
     @staticmethod
@@ -52,22 +45,16 @@ class TypeDecorators:
         def get_float(*args):
             result = []
             for arg in args:
-                if isinstance(arg, str):
-                    if arg.replace(".", "1").isdigit():
-                        result.append(float(arg))
-                    else:
-                        raise TypeError
-                elif isinstance(arg, bool):
-                    if arg:
-                        result.append(1.0)
-                    else:
-                        result.append(0.0)
-                elif isinstance(arg, int):
+                if isinstance(arg, str) and arg.replace(".", "1").isdigit() or isinstance(arg, int) or isinstance(arg,
+                                                                                                                  float):
                     result.append(float(arg))
+                elif isinstance(arg, bool) and arg:
+                    result.append(1.0)
+                elif isinstance(arg, bool) and not arg:
+                    result.append(0.0)
                 else:
-                    result.append(arg)
+                    raise TypeError
             return result
-
         return get_float
 
 

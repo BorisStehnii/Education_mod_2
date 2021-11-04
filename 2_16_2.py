@@ -56,7 +56,7 @@ class Workers:
     def worker_boss(self, boss):
         if isinstance(boss, Boss):
             self._boss = boss
-            Boss.workers_ = Workers
+            boss.workers_ = self
 
     @worker_boss.deleter
     def worker_boss(self):
@@ -64,8 +64,12 @@ class Workers:
 
 
 bor = Workers("Boris", "AMC")
+den = Workers("Den", "AMC")
 vik = Boss("Viktor", "AMC")
 bor.worker_boss = vik
+den.worker_boss = vik
 print(bor.worker_boss)
+print(bor.worker_boss)
+# print(vik._workers)
 print(vik.workers_)
 
