@@ -50,7 +50,7 @@ class MyTestCaseSearch(unittest.TestCase):
             self.search("45", "Phone.json")
 
     def test_str_search(self):
-        self.assertEqual(self.search("45", "tests_phonebook_2_18_2/Phonebook.json"), f"45: first: 35, last: 2, full: 35 2, city: sumy")
+        self.assertEqual(self.search("45", "tests_phonebook_2_18_2/Phonebook.json"), "45, {'first': '35', 'last': '2', 'full': '35 2', 'city': 'sumy'}")
 
     def test_not_str_search(self):
         self.assertEqual(self.search("5", "tests_phonebook_2_18_2/Phonebook.json"), False)
