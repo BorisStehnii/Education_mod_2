@@ -5,7 +5,7 @@ def custom_range(start, stop=0, step=1):
         while start > stop:
             yield start
             start += step
-    while stop > start:
+    while start < stop:
         yield start
         start += step
 
@@ -13,4 +13,4 @@ def custom_range(start, stop=0, step=1):
 print(list(custom_range(13, 1, -2)))
 print(list(custom_range(1, 10, 2)))
 print(list(custom_range(3)))
-print(list(custom_range(3, 10)))
+print(list(custom_range(13, 10)))
