@@ -10,6 +10,7 @@ if len(string) > 1:
 else:
     name_file = input("Name file: ")
 
+with open(name_file, "r") as file_:
 
-test(name_file)
+    print(test(file_))
 

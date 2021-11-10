@@ -1,17 +1,19 @@
-def count_lines(name):
-    with open(name, "r") as file:
-        return len(file.readline())
-
-
-def count_chars(name):
+def count_lines(file):
     count = 0
-    with open(name, "r") as file:
-        for line in file:
-            count += len(line)
+    for _ in file:
+        count += 1
     return count
 
 
-def test(name):
-    res_1 = count_chars(name)
-    res_2 = count_lines(name)
+def count_chars(file):
+    count = 0
+    for line in file:
+        count += len(line)
+    return count
+
+
+def test(file):
+    res_1 = count_lines(file)
+    file.seek(0)
+    res_2 = count_chars(file)
     return [res_1, res_2]

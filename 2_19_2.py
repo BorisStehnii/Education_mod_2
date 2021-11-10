@@ -1,8 +1,12 @@
 import sys
+import os
 
 
-print(sys.path)
-print(__file__)
-sys.path.append(fr"{__file__}")
-sys.path.append(r"C:\Users\Stehnii\PycharmProjects\Education_mod_2\exercise_2_19_1")
-print(sys.path)
+for _ in sys.path:
+    print(_)
+
+list = sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__))))
+# sys.path.insert(0, os.path.join(os.path.dirname(__file__)))
+print(15*"_")
+for _ in sys.path:
+    print(_)
