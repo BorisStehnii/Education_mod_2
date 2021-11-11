@@ -1,6 +1,6 @@
 import unittest
 
-from exercise_2_20_1 import Open
+from exercise_2_20_1.pack_2_20_1.exercise_2_20_1 import Open
 
 
 class TestCaseEnter(unittest.TestCase):
