@@ -3,7 +3,7 @@ import unittest
 from exercise_2_20_1.pack_2_20_1.exercise_2_20_1 import Open
 
 
-class TestCaseEnter(unittest.TestCase):
+class TestCaseOpen(unittest.TestCase):
 
     def setUp(self):
         self.file_name_true = "file_111.txt"

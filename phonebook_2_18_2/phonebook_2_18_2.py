@@ -31,14 +31,15 @@ def add_to_file(entries_, file):
 def search(search_by, file):
     with open(file) as phonebook:
         data_1 = json.load(phonebook)
+        list_result = []
         for key_1 in data_1:
             if key_1 == search_by:
-                return f"{key_1}, {data_1[key_1]}"
+                list_result.append(f"{key_1}, {data_1[key_1]}")
             data_2 = data_1[key_1]
             for value in data_2.values():
                 if value == search_by:
-                    return f"{key_1}, {data_1[key_1]}"
-    return False
+                    list_result.append(f"{key_1}, {data_1[key_1]}")
+    return list_result
 
 
 def delete(phone_number, file):
